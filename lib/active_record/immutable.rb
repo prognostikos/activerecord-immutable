@@ -3,7 +3,7 @@ require "active_record/immutable/version"
 module ActiveRecord
   module Immutable
     def self.included(model)
-      model.before_destroy :raise_error
+      model.before_destroy :raise_error if model.respond_to?(:before_destroy)
     end
 
     def readonly?
