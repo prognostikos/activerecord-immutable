@@ -44,8 +44,10 @@ class ActiveRecord::ImmutableTest < MiniTest::Unit::TestCase
       event.destroy
     end
 
-    assert_raises(ActiveRecord::ReadOnlyRecord) do
-      event.destroy!
+    if event.respond_to?(:destroy!)
+      assert_raises(ActiveRecord::ReadOnlyRecord) do
+        event.destroy!
+      end
     end
   end
 
