@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Matt Rohrer"]
   spec.email         = ["matt@prognostikos.com"]
   spec.summary       = %q{A tiny mixin to make your ActiveRecord models immutable.}
-  spec.description   = %q{Include ActiveRecord::Immuatable in your ActiveRecord models to make your tables append-only.}
+  spec.description   = %q{Include ActiveRecord::Immutable in your ActiveRecord models to make your tables append-only.}
   spec.homepage      = "https://github.com/prognostikos/activerecord-immutable"
   spec.license       = "MIT"
 
