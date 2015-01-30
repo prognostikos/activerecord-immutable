@@ -1,4 +1,4 @@
-# Activerecord::Immutable
+# ActiveRecord::Immutable
 
 A tiny mixin to make your ActiveRecord models immutable after creation.
 
