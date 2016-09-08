@@ -17,7 +17,7 @@ module ActiveRecord
     end
 
     def readonly?
-      persisted?
+      changes.present? && persisted?
     end
 
     def touch

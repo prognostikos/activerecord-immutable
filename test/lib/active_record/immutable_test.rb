@@ -5,8 +5,17 @@ class ActiveRecord::ImmutableTest < MiniTest::Unit::TestCase
     assert DomainEvent.create
   end
 
-  def test_saving_a_persisted_model_raises_error
+  def unmodified_models_can_be_saved
     event = DomainEvent.create
+
+    assert event.save
+
+    assert event.save!
+  end
+
+  def test_saving_a_persisted_model_with_changes_raises_error
+    event = DomainEvent.create
+    event.created_at = Time.now - 10
 
     assert_raises(ActiveRecord::ReadOnlyRecord) do
       event.save
@@ -64,4 +73,5 @@ class ActiveRecord::ImmutableTest < MiniTest::Unit::TestCase
       DomainEvent.delete_all
     end
   end
+
 end
