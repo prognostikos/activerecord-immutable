@@ -58,4 +58,10 @@ class ActiveRecord::ImmutableTest < MiniTest::Unit::TestCase
       event.delete
     end
   end
+
+  def test_delete_all_raises_error
+    assert_raises(ActiveRecord::ReadOnlyRecord) do
+      DomainEvent.delete_all
+    end
+  end
 end
